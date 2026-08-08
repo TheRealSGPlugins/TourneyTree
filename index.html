@@ -5,7 +5,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TourneyTree</title>
 <style>
-:root{--bg:#1f2024;--line:#eeeeee;--text:#ffffff;--accent:#ffd84d;--blue:#3da0ff;--muted:#8f939b}*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;min-height:100%}body{min-height:100vh}.toolbar{position:sticky;top:0;z-index:50;display:flex;gap:8px;align-items:center;padding:10px 14px;background:#191a1ddd;border-bottom:1px solid #34363c;backdrop-filter:blur(8px)}button{background:#2a2c31;color:#fff;border:1px solid #44474f;padding:8px 12px;border-radius:6px;font-weight:700;cursor:pointer}button:hover{background:#34373d}.note{margin-left:auto;color:#b0b4bb;font-size:12px}.stage{position:relative;width:1080px;height:860px;background:var(--bg);overflow:hidden}.team{position:absolute;height:34px;display:flex;align-items:flex-end;z-index:5;cursor:pointer}.seed{width:46px;flex:0 0 46px;text-align:right;padding:0 9px 7px 0;font-weight:700;font-size:16px}.teamline{width:200px;height:34px;border-bottom:2px solid var(--line);display:flex;align-items:flex-end;position:relative;padding-bottom:5px}.name{min-width:0;max-width:88px;border:0;outline:0;background:transparent;color:var(--text);font-size:14px;padding:0 3px}.name:first-child{text-align:right}.sep{color:var(--accent);font-weight:900;padding:0 3px;line-height:1}.team.winner .teamline{border-bottom-color:var(--blue)}.team.winner .name{color:#7cbbff;font-weight:700}.team.loser{opacity:.34}.bye .seed{color:#fff}.bye .teamline{border-bottom-color:#f4f4f4}.bye::after{content:"BYE";position:absolute;right:-35px;bottom:7px;color:#7cbbff;font-size:9px;font-weight:800;letter-spacing:.07em}.advance .seed{color:var(--blue)}.advance .name{pointer-events:none}.advance .teamline{cursor:pointer}.h,.v{position:absolute;background:var(--line);z-index:1}.h{height:2px}.v{width:2px}#s1{left:220px;top:28px}#s9{left:20px;top:104px}#s8{left:20px;top:152px}#s5{left:20px;top:204px}#s12{left:20px;top:252px}#s4{left:220px;top:328px}#s3{left:220px;top:433px}#s11{left:20px;top:504px}#s6{left:20px;top:552px}#s7{left:20px;top:604px}#s10{left:20px;top:652px}#s2{left:220px;top:730px}#r9_8{left:220px;top:128px}#r5_12{left:220px;top:228px}#r11_6{left:220px;top:528px}#r7_10{left:220px;top:628px}#qTop1{left:420px;top:78px}#qTop2{left:420px;top:278px}#qBot1{left:420px;top:478px}#qBot2{left:420px;top:678px}#semiTop{left:620px;top:178px}#semiBot{left:620px;top:578px}#final{left:820px;top:378px}#v98{left:218px;top:136px;height:48px}#v512{left:218px;top:236px;height:48px}#v116{left:218px;top:536px;height:48px}#v710{left:218px;top:636px;height:48px}#v1{left:418px;top:60px;height:100px}#h1{left:420px;top:110px;width:200px}#vTop{left:618px;top:110px;height:200px}#h4{left:420px;top:310px;width:200px}#v4{left:418px;top:260px;height:100px}#v3{left:418px;top:460px;height:100px}#h3{left:420px;top:510px;width:200px}#vBot{left:618px;top:510px;height:200px}#h2{left:420px;top:710px;width:200px}#v2{left:418px;top:660px;height:100px}#hST{left:620px;top:210px;width:200px}#vF{left:818px;top:210px;height:400px}#hSB{left:620px;top:610px;width:200px}#hFinal{left:820px;top:410px;width:200px}.champion{position:absolute;left:1020px;top:362px;width:60px;text-align:center}.cup{font-size:38px}.crown{font-size:10px;color:#c7c7c7;margin-top:5px}.champ-name{position:absolute;left:850px;top:434px;width:170px;color:#7dbdff;font-weight:700;font-size:14px;text-align:center}@media(max-width:900px){.note{display:none}.stage{transform-origin:top left}}</style>
+:root{
+  --bg:#12151d;
+  --line:#24c7ff;
+  --text:#ffffff;
+  --accent:#ffb11b;
+  --blue:#38a7ff;
+  --orange:#ff5b2e;
+  --green:#4dff9a;
+  --muted:#8f939b;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:radial-gradient(circle at 20% 5%,rgba(36,199,255,.14),transparent 28%),radial-gradient(circle at 82% 12%,rgba(255,91,46,.13),transparent 30%),linear-gradient(180deg,#151924,#0c0f15 72%);color:var(--text);font-family:Arial,Helvetica,sans-serif;min-height:100%}
+body{min-height:100vh}
+.toolbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;gap:8px;align-items:center;
+  padding:10px 14px;background:#191a1ddd;border-bottom:1px solid #34363c;
+  backdrop-filter:blur(8px)
+}
+button{
+  background:linear-gradient(135deg,#182333,#202b3c);color:#fff;border:1px solid #31506c;
+  padding:8px 12px;border-radius:6px;font-weight:700;cursor:pointer
+}
+button:hover{background:#25374b;border-color:var(--blue);box-shadow:0 0 14px rgba(36,199,255,.18)}
+.note{margin-left:auto;color:#b0b4bb;font-size:12px}
+.stage{
+  position:relative;width:1080px;height:860px;
+  background:transparent;overflow:hidden
+}
+.team{
+  position:absolute;height:34px;display:flex;align-items:flex-end;
+  z-index:5;cursor:pointer
+}
+.seed{
+  width:46px;flex:0 0 46px;text-align:right;
+  padding:0 9px 7px 0;font-weight:900;font-size:16px;
+  color:var(--orange);text-shadow:0 0 12px rgba(255,91,46,.35)
+}
+.teamline{
+  width:200px;height:34px;border-bottom:2px solid var(--line);box-shadow:0 2px 10px rgba(36,199,255,.18);
+  display:flex;align-items:flex-end;position:relative;padding-bottom:5px
+}
+.name{
+  min-width:0;max-width:88px;border:0;outline:0;
+  background:transparent;color:var(--text);
+  font-size:14px;padding:0 3px
+}
+.name:first-child{text-align:right}
+.sep{color:var(--accent);font-weight:1000;padding:0 4px;line-height:1;text-shadow:0 0 10px rgba(255,177,27,.55)}
+.team.winner .teamline{border-bottom-color:var(--green);box-shadow:0 2px 14px rgba(77,255,154,.55)}
+.team.winner .name{color:var(--green);font-weight:900;text-shadow:0 0 10px rgba(77,255,154,.35)}
+.team.loser{opacity:.27;filter:saturate(.35)}
+.bye .seed{color:var(--accent);text-shadow:0 0 10px rgba(255,177,27,.4)}
+.bye .teamline{border-bottom-color:var(--accent);box-shadow:0 2px 10px rgba(255,177,27,.22)}
+.bye::after{
+  content:"BYE";position:absolute;right:-35px;bottom:7px;
+  color:var(--accent);font-size:9px;font-weight:900;letter-spacing:.07em
+}
+.advance .seed{color:var(--blue)}
+.advance .name{pointer-events:none}
+.advance .teamline{cursor:pointer}
+.h,.v{position:absolute;background:linear-gradient(90deg,var(--blue),#65dcff);z-index:1;box-shadow:0 0 8px rgba(36,199,255,.28)}.h{height:2px}.v{width:2px}
+#s1{left:220px;top:28px}#s9{left:20px;top:104px}#s8{left:20px;top:152px}#s5{left:20px;top:204px}#s12{left:20px;top:252px}#s4{left:220px;top:328px}#s3{left:220px;top:433px}#s11{left:20px;top:504px}#s6{left:20px;top:552px}#s7{left:20px;top:604px}#s10{left:20px;top:652px}#s2{left:220px;top:730px}
+#r9_8{left:220px;top:128px}#r5_12{left:220px;top:228px}#r11_6{left:220px;top:528px}#r7_10{left:220px;top:628px}
+#qTop1{left:420px;top:78px}#qTop2{left:420px;top:278px}#qBot1{left:420px;top:478px}#qBot2{left:420px;top:678px}
+#semiTop{left:620px;top:178px}#semiBot{left:620px;top:578px}#final{left:820px;top:378px}
+#v98{left:218px;top:136px;height:48px}#v512{left:218px;top:236px;height:48px}#v116{left:218px;top:536px;height:48px}#v710{left:218px;top:636px;height:48px}
+#v1{left:418px;top:60px;height:100px}#h1{left:420px;top:110px;width:200px}#vTop{left:618px;top:110px;height:200px}#h4{left:420px;top:310px;width:200px}#v4{left:418px;top:260px;height:100px}
+#v3{left:418px;top:460px;height:100px}#h3{left:420px;top:510px;width:200px}#vBot{left:618px;top:510px;height:200px}#h2{left:420px;top:710px;width:200px}#v2{left:418px;top:660px;height:100px}
+#hST{left:620px;top:210px;width:200px}#vF{left:818px;top:210px;height:400px}#hSB{left:620px;top:610px;width:200px}#hFinal{left:820px;top:410px;width:200px}
+.champion{position:absolute;left:1020px;top:362px;width:60px;text-align:center}
+.cup{font-size:42px;filter:drop-shadow(0 0 12px rgba(255,177,27,.55))}
+.crown{font-size:11px;color:var(--accent);font-weight:900;letter-spacing:.12em;margin-top:5px;text-shadow:0 0 10px rgba(255,177,27,.25)}
+.champ-name{position:absolute;left:850px;top:434px;width:170px;color:var(--green);font-weight:900;font-size:15px;text-align:center;text-shadow:0 0 12px rgba(77,255,154,.4)}
+@media(max-width:900px){.note{display:none}.stage{transform-origin:top left}}
+</style>
 </head>
 <body>
 <div class="toolbar"><button id="clear">Clear Winners</button><button id="reset">Reset Names</button><span class="note">Click a team line to advance it • names are directly editable</span></div>
